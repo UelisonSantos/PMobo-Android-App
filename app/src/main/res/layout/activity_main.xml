@@ -7,25 +7,60 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/hello"
+        android:id="@+id/txtHowCanIHelp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="39dp"
+        android:layout_marginTop="20dp"
+        android:text="No que eu posso ajuda-lo?"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnMic"
+        tools:text="No que eu posso ajuda-lo?" />
 
-    <Button
-        android:id="@+id/button"
+    <ImageButton
+        android:id="@+id/btnMic"
+        android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_height="74dp"
+        android:layout_marginTop="92dp"
         android:onClick="onSpeechButtonClicked"
-        android:text="Button"
-        app:layout_constraintBottom_toTopOf="@+id/hello"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.072" />
+        app:srcCompat="@drawable/mic_logo" />
+
+    <TextView
+        android:id="@+id/txtWhatCanIDo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Toque no microfone e diga para mim algo como: \n “Criar um projeto”\n “Criar uma tarefa” "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtHowCanIHelp" />
+
+    <TextView
+        android:id="@+id/txtSpeechReturn"
+        android:layout_width="wrap_content"
+        android:layout_height="22dp"
+        android:layout_marginBottom="42dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="130dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/pmobo_logo" />
 
 </android.support.constraint.ConstraintLayout>
