@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
+import org.json.JSONException;
+
 public class CriandoTarefa extends AppCompatActivity {
 
     // Replace below with your own subscription key
@@ -32,8 +34,23 @@ public class CriandoTarefa extends AppCompatActivity {
         textViewNome.setText("Nome: " + nome);
 
 
+        RestHandler rh = new RestHandler();
+        Task tarefa = new Task();
+
+        tarefa.TaskName = nome;
+        tarefa.ProjectName = projeto;
+
+        try {
+            rh.CreateTask(this, tarefa);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
 
-    //Create Project Here
+        Intent home = new Intent(this, MainActivity.class);
+        startActivity(home);
+
+        //Create Project Here
+
+    }
 
 }

@@ -4,6 +4,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 import android.content.Intent;
+import java.util.ArrayList;
+import android.util.Log;
+
+import org.json.JSONException;
+
 
 public class CriandoProjeto extends AppCompatActivity {
 
@@ -31,7 +36,21 @@ public class CriandoProjeto extends AppCompatActivity {
         textViewNomeProjeto.setText("Nome: " + nomeProjeto);
         textViewInicio.setText("Data: " + inicio);
 
+
+        RestHandler rh = new RestHandler();
+        Project projeto = new Project();
+        projeto.Name = nomeProjeto;
+        projeto.EPTGuid = "09fa52b4-059b-4527-926e-99f9be96437a";
+        try {
+            rh.CreateProject(this, projeto);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
+
+        Intent home = new Intent(this, MainActivity.class);
+        startActivity(home);
+
+    }
 
     //Create Project Here
 

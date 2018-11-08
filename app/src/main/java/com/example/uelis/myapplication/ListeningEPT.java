@@ -5,13 +5,15 @@ import android.content.Intent;
         import android.util.Log;
         import android.view.View;
         import android.os.Bundle;
+import android.widget.TextView;
 
-        import com.microsoft.cognitiveservices.speech.ResultReason;
+import com.microsoft.cognitiveservices.speech.ResultReason;
         import com.microsoft.cognitiveservices.speech.SpeechConfig;
         import com.microsoft.cognitiveservices.speech.SpeechRecognitionResult;
         import com.microsoft.cognitiveservices.speech.SpeechRecognizer;
 
         import java.util.concurrent.Future;
+        import java.util.ArrayList;
 
 public class ListeningEPT extends AppCompatActivity {
 
@@ -25,7 +27,25 @@ public class ListeningEPT extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listening_ept);
 
+
+        RestHandler rh = new RestHandler();
+        //rh.GetProjects(this);
+        ArrayList <EPT> epts = rh.GetEPTs(this);
+        Log.e("Rest size", "" + epts.size());
+
+        TextView textViewEPTs = findViewById(R.id.textViewEPTs);
+
+        for (EPT ept : epts)
+        {
+            Log.e("Rest " + ept.Id, ept.Name + " - " + ept.Id);
+            //TextView textView = new TextView(this);
+            //textView.setText(ept.Name);
+            textViewEPTs.setText(textViewEPTs.getText() + ept.Name + System.getProperty ("line.separator"));
+        }
+
     }
+
+
 
     public void onSpeechButtonClicked(View v) {
 
